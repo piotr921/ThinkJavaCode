@@ -1,4 +1,4 @@
-public class Exercise {
+public class ExerciseCh07 {
 
     public static void main(String[] args) {
         loop(10);

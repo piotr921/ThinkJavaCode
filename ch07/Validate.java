@@ -51,4 +51,9 @@ public class Validate {
         return sum;
     }
 
+    public static void main(String[] args){
+        double x = scanDouble();
+        //Sys
+    }
+
 }

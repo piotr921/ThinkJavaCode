@@ -1,8 +1,9 @@
-import junit.framework.TestCase;
+//import junit.framework.TestCase;
 
 /**
  * Example JUnit test from Appendix A.
  */
+/*
 public class SeriesTest extends TestCase {
 
     public void testFibonacci() {
@@ -12,3 +13,4 @@ public class SeriesTest extends TestCase {
     }
 
 }
+*/

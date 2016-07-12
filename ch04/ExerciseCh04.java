@@ -1,4 +1,4 @@
-public class Exercise {
+public class ExerciseCh04 {
 
     public static void zoop() {
         baffle();
