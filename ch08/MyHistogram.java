@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -34,6 +35,15 @@ public class MyHistogram {
     }
 
     /*
+    * displays elements in ranges
+     */
+    public static void printRanges(int[][]inputRanges){
+        for(int i=0; i<inputRanges.length; i++){
+            System.out.println(Arrays.toString(inputRanges[i]));
+        }
+    }
+
+    /*
     * returns number of range, puts input value to one from input number of rangess
      */
     public static int[][] calculateRanges(int noOfRanges, int elements){
@@ -44,6 +54,7 @@ public class MyHistogram {
                 ranges[row][col] = row*elementsInRange + col;
             }
         }
+        printRanges(ranges);
         return ranges;
     }
 
@@ -62,7 +73,7 @@ public class MyHistogram {
     }
 
     /*
-    * selects range which conbtains input element
+    * selects range which contains input element
      */
     public static int selectRange(int element, int[][] ranges){
         int row = 0;
@@ -94,6 +105,7 @@ public class MyHistogram {
 
     public static void main(String[] args){
         int[] scores = randomArray(10);
+        System.out.println(Arrays.toString(scores));
         int noofcounters = readInput("number of counters: ");
         histogram(scores,noofcounters);
     }
