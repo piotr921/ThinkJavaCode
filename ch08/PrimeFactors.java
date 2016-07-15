@@ -23,11 +23,11 @@ public class PrimeFactors {
     }
 
     /*
-    * This function puts into array numers write by user
+    * This function puts into array numbers write by user
      */
     public static void initArray(int[] array){
         for(int i=0; i<array.length; i++){
-            String message = "element " + i + ": ";
+            String message = "element " + i;
             array[i] = readInput(message);
         }
     }
@@ -37,12 +37,12 @@ public class PrimeFactors {
      */
     public static boolean isPrime(int number){
         int numberOfDividers = 0;
-        for (int i=0; i<number; i++){
+        for (int i=2; i<number; i++){
             if((number % i) == 0){
                 numberOfDividers++;
             }
         }
-        return (numberOfDividers == 2);  // Every prime number has only 2 dividers: 1 and itself
+        return (numberOfDividers == 0);  // Every prime number has only 2 dividers: 1 and itself and loop is conting from 2 to n-1
     }
 
     /*
@@ -59,7 +59,7 @@ public class PrimeFactors {
     }
 
     /*
-    * This functions returns TRUE when all elemnts in array multiplied are equal to input number
+    * This functions returns TRUE when all elements in array multiplied are equal to input number
      */
     public static boolean areMultipliesEquals(int number, int[] array){
         int product = 1;
