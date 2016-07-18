@@ -64,6 +64,21 @@ public class ForDebugging09 {
         return okay;
     }
 
+    public static String removeLetterFromWord(char letter, String word){
+        int index = 0;
+        for(int i=0; i<word.length(); i++){
+            if(letter == word.charAt(i)){
+                index = i;
+                break;
+            }
+        }
+        if(index == word.length()-1){
+            return word.substring(0,index);
+        } else{
+            return word.substring(0,index) + word.substring(index+1, word.length()-1);
+        }
+    }
+
     public static void main(String[] args){
 
         /*
@@ -85,11 +100,11 @@ public class ForDebugging09 {
         int i = 5;
         */
 
-        char c = 'a';
+        char c = 'o';
         String s1 = "mamaitataa";
         String s2 = "iaaaammtto";
         boolean res = areTheSameOccurance(s1,s2);
-        System.out.print(res);
+        System.out.print(removeLetterFromWord(c,s2));
 
     }
 }
