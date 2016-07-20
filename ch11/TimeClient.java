@@ -28,6 +28,12 @@ public class TimeClient {
 
         // using the instance method
         endTime = startTime.add(runningTime);
+
+        // testing new implementation of increment
+        Time t1 = new Time(12, 00, 0.0);
+        t1.increment(12059);
+        String s1 = t1.toString();
+        System.out.print("\nResult: " + s1);
     }
 
 }

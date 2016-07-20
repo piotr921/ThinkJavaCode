@@ -88,7 +88,12 @@ public class Time {
      * Adds the given number of seconds to this object (modifier).
      */
     public void increment(double seconds) {
-        this.second += seconds;
+        this.second  = (this.second + seconds) % 60;
+        int tmp = (int) seconds/60;
+        this.minute = (this.minute + tmp) % 60;
+        tmp = (int) seconds/3600;
+        this.hour = (this.hour + tmp) % 60;
+        /*
         while (this.second >= 60.0) {
             this.second -= 60.0;
             this.minute += 1;
@@ -97,6 +102,7 @@ public class Time {
             this.minute -= 60;
             this.hour += 1;
         }
+        */
     }
 
 }

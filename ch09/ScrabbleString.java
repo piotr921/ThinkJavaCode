@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Created by Comarch on 2016-07-18.
  */
-public class Scrabble {
+public class ScrabbleString {
 
     public static String readInput(String paramName){
         Scanner in = new Scanner(System.in);
