@@ -6,7 +6,7 @@ import java.awt.Rectangle;
  */
 public class PointRect {
 
-    public static void main(String[] args) {
+    public static void exrcise1(String[] args) {
         Point blank;
         blank = new Point(3, 4);
         System.out.println(blank);
@@ -64,7 +64,7 @@ public class PointRect {
     /**
      * Exercise on returning objects.
      */
-    public static void exercise2() {
+    public static void exrcise2 () {
         Point blank = new Point(5, 8);
 
         Rectangle rect = new Rectangle(0, 2, 4, 4);
@@ -77,13 +77,16 @@ public class PointRect {
     /**
      * Exercise on aliasing.
      */
-    public static void exercise3() {
+    public static void main(String[] args) {
         Rectangle box1 = new Rectangle(2, 4, 7, 9);
         Point p1 = findCenter(box1);
         printPoint(p1);
 
         box1.grow(1, 1);
         Point p2 = findCenter(box1);
+        printPoint(p2);
+        p1.x = 99;
+        printPoint(p1);
         printPoint(p2);
     }
 
