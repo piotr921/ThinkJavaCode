@@ -3,14 +3,14 @@
  */
 public class RationalClient {
     public static void main(String[] args){
-        Rational number = new Rational(3,13);
+        Rational number = new Rational(767,1900);
+        Rational toAdd = new Rational(100,89);
         /*
         number.setDenominator(2);
         number.setNumerator(9);
         */
-        /////
+        /*
         number.printRational(number);
-        ////
         String s = number.toString();
         System.out.println(s);
 
@@ -24,6 +24,8 @@ public class RationalClient {
         System.out.println("After swap: " + s);
 
         double result = number.toDouble(number);
-        System.out.println("Result = " + result);
+        */
+        number.add(toAdd);
+        System.out.println("Result: " + number);
     }
 }

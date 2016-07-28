@@ -84,6 +84,38 @@ public class Search {
         }
     }
 
+    /*
+     * Returns histogram of deck
+     */
+    public static int[] suitHist(Card[] suit){
+        int[] histogram = new int[52];
+        for(int i=0; i<histogram.length; i++){
+            histogram[i] = 0;
+        }
+        for(int i=0; i<suit.length; i++){
+            histogram[suit[i].position()]++;
+        }
+        return histogram;
+    }
+
+    /*
+     * Returns TRUE when there are 5 cards of the same suite in input array
+     */
+    public static boolean hasFlush(Card[] suite){
+        int counter;
+        int[] histogram = suitHist(suite);
+        for(int i=0; i<4; i++){
+            counter = 0;
+            for(int j=0; j<13; j++){
+                counter += histogram[i*13+j];
+            }
+            if(counter >= 5){
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Demonstrates how to call the search methods.
      */
@@ -107,6 +139,25 @@ public class Search {
         System.out.println("Recursive binary search");
         System.out.println(binarySearch(cards, jack, 0, 51));
         System.out.println();
+
+        Card[] suit = new Card[8];
+        suit[0] = new Card(2,3);
+        suit[1] = new Card(3,2);
+        suit[2] = new Card(4,0);
+        suit[3] = new Card(1,1);
+        suit[4] = new Card(2,1);
+        suit[5] = new Card(3,1);
+        suit[6] = new Card(4,1);
+        suit[7] = new Card(1,3);
+
+
+        int[] hist = suitHist(suit);
+
+        for(int i=0; i<cards.length; i++){
+            System.out.print(cards[i].toString() + " occurs " + hist[i] + " times.\n");
+        }
+
+        System.out.print("\nHas Flush? " + hasFlush(suit));
     }
 
 }

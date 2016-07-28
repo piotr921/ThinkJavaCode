@@ -79,39 +79,38 @@ public class Rational {
     }
 
     /*
-     * Returns rest from dividing 2 numbers when this rest is smaller than divider
-     */
-    private static int divide(int number, int divider){
-        int result = number;
-        int i = 1;
-        while(result > divider){
-            result = number % (i*divider);
-        }
-        return result;
-    }
-
-    /*
      * Returns greatest common divisor with Euclidean algorhitm
      */
     private static int findGCD(int numerator, int denominator){
-        int rest = 1;
-        while(rest != 0){
-            rest = divide(numerator, denominator);
-            numerator = denominator;
-            denominator = rest;
+        if(numerator - denominator == 0){
+            return numerator;
+        } else if(numerator - denominator > 0){
+            return findGCD(numerator-denominator, denominator);
+        } else{
+            return findGCD(numerator,denominator-numerator);
         }
-        return denominator;
     }
 
     /*
      * Reduces rational number to its lowest term
      */
-    public Rational reduce(Rational number){
-        Rational result = new Rational();
+    public static Rational reduce(Rational number){
+        Rational result = new Rational(number.getNumerator(),number.getDenominator());
         int gcd = findGCD(number.numerator, number.denominator);
         result.setNumerator(result.getNumerator()/gcd);
         result.setDenominator(result.getDenominator()/gcd);
         return result;
+    }
+
+    /*
+    * Adds input rational number to this object
+     */
+    public void add(Rational that){
+        this.numerator += that.getNumerator();
+        this.denominator += that.getDenominator();
+        Rational tmp = reduce(this);
+        this.numerator = tmp.getNumerator();
+        this.denominator = tmp.getDenominator();
     }
 
 }
